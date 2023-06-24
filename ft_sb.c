@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-void	ft_sb(char *ary_b)
+void	ft_sb(int *ary_b)
 {
 	ft_swap(&ary_b[0], &ary_b[1]);
 }

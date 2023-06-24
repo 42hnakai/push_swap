@@ -12,22 +12,41 @@
 
 #include "ft_push_swap.h"
 
-int	main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-		char ary_a[4];
-		char ary_b[4];
+	int *ary_a;
+	int *ary_b;
+	int i;
+	int j;
 
+	i = 0;
+	j = 0;
+	ary_a = (int *)malloc(sizeof(int) * argc);
+	ary_b = (int *)malloc(sizeof(int) * argc);
 	if (argc > 3)
 	{
-		ary_a[0] = argv[1][0]; // 最初の引数の最初の文字をコピー
-		ary_a[1] = argv[2][0]; // 2番目の引数の最初の文字をコピー
-		ary_a[2] = argv[3][0]; // 3番目の引数の最初の文字をコピー
-		ary_a[3] = '\0';       // 文字列の終わりを示すヌル文字を追加
-		printf("Before swap: %s\n", ary_a);
-		printf("Before swap: %s\n", ary_b);
-		ft_sb(ary_a);
-		printf("After swap: %s\n", ary_a);
-		printf("After swap: %s\n", ary_b);
+		while (argv[i + 1] != NULL)
+		{
+			ary_a[i] = ft_atoi(&argv[i + 1][0]); // コマンドライン引数の文字列を数字に変換&&コピー
+			i++;
+		}
+		ary_a[i] = '\0'; // 文字列の終わりを示すヌル文字を追加
+		printf("Before swap: ");
+		while (ary_a[j] != '\0')
+		{
+			printf("%d ", ary_a[j]);
+			j++;
+		}
+		printf("\n");
+		ft_sa(ary_a);
+		j = 0;
+		printf("After  swap: ");
+		while (ary_a[j] != '\0')
+		{
+			printf("%d ", ary_a[j]);
+			j++;
+		}
+		printf("\n");
 	}
 	return (0);
 }

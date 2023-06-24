@@ -12,9 +12,9 @@
 
 #include "ft_push_swap.h"
 
-void	ft_swap(char *x, char *y)
+void ft_swap(int *x, int *y)
 {
-	char z;
+	int z;
 	z = *x;
 	*x = *y;
 	*y = z;
