@@ -1,6 +1,6 @@
 #include "ft_push_swap.h"
 
-void	ft_pb(char *ary_a, char *ary_b)
+void	ft_pb(int *ary_a,int *ary_b)
 {
 	size_t i;
 	i = ft_strlen(ary_a);

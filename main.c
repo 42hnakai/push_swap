@@ -12,10 +12,21 @@
 
 #include "ft_push_swap.h"
 
+int ft_push_swap(int *ary_a_cc, int *ary_b, int argc)
+{
+	if (argc == 4) // the number of argument is 3
+		ft_3(ary_a_cc, ary_b);
+	else if (argc < 6) // the number of argument is 5 or less
+		ft_5_or_less(ary_a_cc, ary_b);
+	else // the number of argument is more than 6
+		ft_more_than_6(ary_a_cc, ary_b);
+}
+
 int main(int argc, char *argv[])
 {
 	int *ary_a;
 	int *ary_b;
+	int *ary_a_cc;
 	int i;
 	int j;
 
@@ -38,12 +49,13 @@ int main(int argc, char *argv[])
 			j++;
 		}
 		printf("\n");
-		ft_sa(ary_a);
+		ary_a_cc = ft_compressCoordinates(ary_a, argc); //座標圧縮をする関数
+		ary_a = ft_push_swap(ary_a_cc, ary_b, argc);	//実際にpush_swapする
 		j = 0;
 		printf("After  swap: ");
-		while (ary_a[j] != '\0')
+		while (ary_b[j] != '\0')
 		{
-			printf("%d ", ary_a[j]);
+			printf("%d ", ary_b[j]);
 			j++;
 		}
 		printf("\n");

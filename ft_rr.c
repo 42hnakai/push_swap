@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-void	ft_rr(char *ary_a,char *ary_b)
+void	ft_rr(int *ary_a,int *ary_b)
 {
 	ft_ra(ary_a);
 	ft_rb(ary_b);

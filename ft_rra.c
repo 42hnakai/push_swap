@@ -1,9 +1,9 @@
 #include "ft_push_swap.h"
 
-void	ft_rra(char *ary_a)
+void	ft_rra(int *ary_a)
 {
 	size_t len_a;
-	char x;
+	int x;
 	len_a = ft_strlen(ary_a);
 	x = ary_a[len_a - 1];
 	ary_a[len_a] = '\0';
