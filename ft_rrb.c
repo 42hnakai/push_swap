@@ -13,4 +13,5 @@ void	ft_rrb(int *ary_b)
 		len_b--;
 	}
 	ary_b[0] = x;
+	printf("rrb\n");
 }

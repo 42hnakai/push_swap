@@ -15,6 +15,10 @@ $(OBJ): $(SRC)
 # .c.o:
 # 	$(CC) $(GFLAGS) -c $(SRC)
 
+test :
+	./$(NAME)  1 4 2 3
+	./$(NAME)  1 4 2 3 | grep -e 'sa' -e 'sb' -e 'ss' -e 'pa' -e 'pb' -e 'ra' -e 'rb' -e 'rr' -e 'rra' -e 'rrb' -e 'rrr' | wc -l
+
 clean:
 	rm -f $(OBJ)
 

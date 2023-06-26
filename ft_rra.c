@@ -13,4 +13,5 @@ void	ft_rra(int *ary_a)
 		len_a--;
 	}
 	ary_a[0] = x;
+	printf("rra\n");
 }

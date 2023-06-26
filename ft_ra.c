@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 16:02:36 by hnakai            #+#    #+#             */
-/*   Updated: 2023/06/23 16:02:37 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/06/27 00:26:14 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_ra(int *ary_a)
 {
 	int i = 0;
-	char x;
+	int x;
 	x = ary_a[0];
 	while (ary_a[i + 1] != '\0')
 	{
@@ -24,4 +24,5 @@ void	ft_ra(int *ary_a)
 	}
 	ary_a[i] = x;
 	ary_a[i + 1] = '\0';
+	printf("ra\n");
 }

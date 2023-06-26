@@ -20,4 +20,5 @@ void	ft_pb(int *ary_a,int *ary_b)
 		}
 		ary_a[i] = '\0';
 	}
+	printf("pb\n");
 }
