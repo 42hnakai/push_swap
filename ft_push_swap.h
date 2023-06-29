@@ -26,8 +26,8 @@ size_t	ft_strlen(const int *str);
 
 int		*ft_compressCoordinates(int *ary, int argc);
 
-void	ft_3(int *ary_a_cc, int *ary_b);
-void	ft_5_or_less(int *ary_a_cc, int *ary_b);
-void	ft_more_than_6(int *ary_a_cc, int *ary_b);
+void	ft_3(int *ary_a_cc);
+void	ft_5_or_less(int *ary_a_cc, int *ary_b,int argc);
+// void	ft_more_than_6(int *ary_a_cc, int *ary_b);
 
 #endif

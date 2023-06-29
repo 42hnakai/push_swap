@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/06/27 02:51:02 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/06/28 16:28:40 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	ft_push_swap(int *ary_a_cc, int *ary_b, int argc)
 			return ;
 	}
 	if (argc == 4) // the number of argument is 3
-		ft_3(ary_a_cc, ary_b);
+		ft_3(ary_a_cc);
 	else if (argc <= 6) // the number of argument is 5 or less
-		ft_5_or_less(ary_a_cc, ary_b);
-	else // the number of argument is more than 6
-		ft_more_than_6(ary_a_cc, ary_b);
+		ft_5_or_less(ary_a_cc, ary_b, argc);
+	// else // the number of argument is more than 6
+	// 	ft_more_than_6(ary_a_cc, ary_b);
 }
 
 int	main(int argc, char *argv[])
