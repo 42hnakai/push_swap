@@ -24,6 +24,10 @@ void ft_revsort_three(int *ary_b)
         }
     }
     else if (ary_b[2] < ary_b[0] && ary_b[2] < ary_b[1])
+    {
         if (ary_b[0] < ary_b[1])
             ft_sb(ary_b);
+        else
+            return;
+    }
 }

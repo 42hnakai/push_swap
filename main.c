@@ -15,6 +15,7 @@
 void ft_push_swap(int *ary_a_cc, int *ary_b, int argc)
 {
 	int i;
+	int *num;
 
 	i = 0;
 	while (ary_a_cc[i + 1] != '\0')
@@ -31,7 +32,15 @@ void ft_push_swap(int *ary_a_cc, int *ary_b, int argc)
 	else if (argc <= 6) // the number of argument is 5 or less
 		ft_sort_five(ary_a_cc, ary_b, argc - 1);
 	else // the number of argument is more than 6
-		ft_sort_six(ary_a_cc, ary_b, argc - 1, 1);
+	{
+		num = (int *)calloc(1, sizeof(int) * argc / 2);
+		if (argc % 2 == 0)
+			num[1] = (argc - 1) / 2;
+		else
+			num[1] = (argc - 1) / 2;
+		num[0] = (argc - 1) - num[1];
+		ft_sort_six(ary_a_cc, ary_b, 1, num, 0);
+	}
 }
 
 int main(int argc, char *argv[])
@@ -40,10 +49,8 @@ int main(int argc, char *argv[])
 	int *ary_b;
 	int *ary_a_cc;
 	int i;
-	// int	j;
 
 	i = 0;
-	// j = 0;
 	ary_a = (int *)malloc(sizeof(int) * argc);
 	if (ary_a == NULL)
 		return (0);
@@ -57,32 +64,11 @@ int main(int argc, char *argv[])
 			ary_a[i] = ft_atoi(&argv[i + 1][0]); // コマンドライン引数の文字列を数字に変換&&コピー
 			i++;
 		}
-		ary_a[i] = '\0'; // 文字列の終わりを示すヌル文字を追加
-		// printf("Before swap: ");
-		// while (ary_a[j] != '\0')
-		// {
-		// 	printf("%d ", ary_a[j]);
-		// 	j++;
-		// }
-		// printf("\n");
-		ary_a_cc = ft_compressCoordinates(ary_a, argc); //座標圧縮をする関数
-		// j = 0;
-		// printf("After swap: ");
-		// while (ary_a_cc[j] != '\0')
-		// {
-		// 	printf("%d ", ary_a_cc[j]);
-		// 	j++;
-		// }
-		// printf("\n");
-		ft_push_swap(ary_a_cc, ary_b, argc); //実際にpush_swapする
+		ary_a[i] = '\0';								// 文字列の終わりを示すヌル文字を追加
+		ary_a_cc = ft_compressCoordinates(ary_a, argc); // 座標圧縮をする関数
+		ft_push_swap(ary_a_cc, ary_b, argc);			// 実際にpush_swapする
 		int j;
 		j = 0;
-		// printf("After swap: ");
-		// while (ary_a_cc[j] != '\0')
-		// {
-		// 	printf("%d ", ary_a_cc[j]);
-		// 	j++;
-		// }
 	}
 	return (0);
 }
