@@ -6,6 +6,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct
+{
+    int min;
+    int max;
+} max_min;
+
 // push_swapフォルダ下にあるファイル内の関数を宣言
 void ft_sa(int *ary_a);
 void ft_sb(int *ary_b);
@@ -28,8 +34,13 @@ int *ft_compressCoordinates(int *ary, int argc);
 
 void ft_sort_three(int *ary_a_cc);
 void ft_revsort_three(int *ary_b);
+void ft_sort_three_x(int *ary_a_cc);
 void ft_sort_five(int *ary_a_cc, int *ary_b, int argc);
-void ft_sort_six(int *ary_a_cc, int *ary_b, int k, int *num,int flag);
+void ft_sort_five_x(int *ary_x, int *ary_y, int argc);
+void ft_sort_six(int *ary_a_cc, int *ary_b, int len);
+void ft_sort_x(int *ary_a_cc, int *ary_b, int k, int *num, int flag);
+void ft_sort_xx(int *ary_x, int *ary_y);
 int ft_midian(int *ary);
+max_min ft_max_min(int *ary);
 
 #endif

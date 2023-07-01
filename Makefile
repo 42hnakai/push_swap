@@ -16,8 +16,8 @@ $(NAME):$(OBJ)
 	$(CC) $(GFLAGS) -c $(SRC)
 
 test : all
-	./$(NAME) 1 3 5 2 4 6 8
-	./$(NAME) 1 3 5 2 4 6 8| grep -e 'sa' -e 'sb' -e 'ss' -e 'pa' -e 'pb' -e 'ra' -e 'rb' -e 'rr' -e 'rra' -e 'rrb' -e 'rrr' | wc -l
+	./$(NAME) 1 3 5 2 4 10 9 8 7 6 14 13 12 11
+	./$(NAME) 1 3 5 2 4 10 9 8 7 6 14 13 12 11  | grep -e 'sa' -e 'sb' -e 'ss' -e 'pa' -e 'pb' -e 'ra' -e 'rb' -e 'rr' -e 'rra' -e 'rrb' -e 'rrr' | wc -l
 
 clean:
 	rm -f $(OBJ)

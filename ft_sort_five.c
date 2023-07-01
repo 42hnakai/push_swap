@@ -1,33 +1,47 @@
 #include "ft_push_swap.h"
 
-void ft_sort_five(int *ary_a_cc, int *ary_b, int argc)
+// ary_xのものをary_yを使ってソートする
+void ft_sort_five(int *ary_x, int *ary_y, int argc)
 {
+	int count;
+	max_min max_min;
+
+	count = 0;
+	max_min = ft_max_min(ary_x);
 	if (argc == 4)
 	{
-		while (ft_strlen(ary_b) != 1)
+		while (ft_strlen(ary_x) > 3)
 		{
-			if (ary_a_cc[0] == 1)
-				ft_pb(ary_a_cc, ary_b);
+			if (ary_x[0] == max_min.max)
+				ft_pb(ary_x, ary_y);
 			else
-				ft_ra(ary_a_cc);
+				ft_rb(ary_x);
 		}
-		ft_sort_three(ary_a_cc);
-		ft_pa(ary_a_cc, ary_b);
+		ft_sort_three(ary_x);
+		ft_pa(ary_x, ary_y);
+		ft_ra(ary_x);
 	}
 	else
 	{
-
-		while (ft_strlen(ary_b) != 2)
+		while (ft_strlen(ary_x) > 3)
 		{
-			if (ary_a_cc[0] == 1 || ary_a_cc[0] == 2)
-				ft_pb(ary_a_cc, ary_b);
+			if (ary_x[0] == max_min.min || ary_x[0] == max_min.max)
+				ft_pb(ary_x, ary_y);
 			else
-				ft_ra(ary_a_cc);
+				ft_ra(ary_x);
 		}
-		if (ary_b[0] < ary_b[1])
-			ft_sb(ary_b);
-		ft_sort_three(ary_a_cc);
-		ft_pa(ary_a_cc, ary_b);
-		ft_pa(ary_a_cc, ary_b);
+		ft_sort_three(ary_x);
+		if (ary_y[0] == max_min.min)
+		{
+			ft_pa(ary_x, ary_y);
+			ft_pa(ary_x, ary_y);
+			ft_ra(ary_x);
+		}
+		else
+		{
+			ft_pa(ary_x, ary_y);
+			ft_ra(ary_x);
+			ft_pa(ary_x, ary_y);
+		}
 	}
 }
