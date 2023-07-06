@@ -3,10 +3,8 @@
 // ary_xのものをary_yを使ってソートする
 void ft_sort_five(int *ary_x, int *ary_y, int argc)
 {
-	int count;
 	max_min max_min;
 
-	count = 0;
 	max_min = ft_max_min(ary_x);
 	if (argc == 4)
 	{

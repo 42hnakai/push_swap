@@ -16,8 +16,10 @@ $(NAME):$(OBJ)
 	$(CC) $(GFLAGS) -c $(SRC)
 
 test : all
-	./$(NAME) 1 3 5 2 4 10 9 8 7 6 14 13 12 11
-	./$(NAME) 1 3 5 2 4 10 9 8 7 6 14 13 12 11  | grep -e 'sa' -e 'sb' -e 'ss' -e 'pa' -e 'pb' -e 'ra' -e 'rb' -e 'rr' -e 'rra' -e 'rrb' -e 'rrr' | wc -l
+	./push_swap 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1  && \
+	cd push_swap_tester/ && \
+	python3 push_swap_tester.py -l 16 -c 500 -r 1 100 && \
+	cd -
 
 clean:
 	rm -f $(OBJ)

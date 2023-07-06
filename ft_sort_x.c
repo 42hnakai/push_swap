@@ -1,6 +1,6 @@
 #include "ft_push_swap.h"
 
-void ft_sort_x(int *ary_a_cc, int *ary_b, int k, int *num, int flag)
+void	ft_sort_x(int *ary_a_cc, int *ary_b, int k, int *num, int flag)
 {
 	int p_count;
 	int mid;
@@ -13,7 +13,7 @@ void ft_sort_x(int *ary_a_cc, int *ary_b, int k, int *num, int flag)
 	len_b = 0;
 	count = 0;
 	if (num[0] == 0)
-		return;
+		return ;
 	if (flag == 1)
 	{
 		if (num[k] == 1)
@@ -51,20 +51,23 @@ void ft_sort_x(int *ary_a_cc, int *ary_b, int k, int *num, int flag)
 				ft_ra(ary_a_cc);
 			i++;
 			if (count == num[1])
-				break;
+				break ;
 		}
 	}
 	else if (flag == 1)
 	{
 		while (i < num[k]) // num[i]個をary_bに移動させる
 		{
-			ft_pb(ary_a_cc, ary_b);
+			if (ary_a_cc[0] == (ary_a_cc[ft_strlen(ary_a_cc) - 1] + 1))
+				ft_ra(ary_a_cc);
+			else
+				ft_pb(ary_a_cc, ary_b);
 			i++;
 		}
 	}
-	len_b = num[k];
+	len_b = ft_strlen(ary_b);
 	num[k] = 0;
-	while (len_b > 11) // ary_bの要素数が３以下になるまでpush_aする
+	while (len_b > 20) // ary_bの要素数が３以下になるまでpush_aする
 	{
 		j = 0;
 		p_count = 0;
@@ -86,7 +89,7 @@ void ft_sort_x(int *ary_a_cc, int *ary_b, int k, int *num, int flag)
 		k = k + 1;
 	}
 	if (len_b == 0)
-		return;
+		return ;
 	if (len_b == 1) // ary_bの要素数が1の時
 	{
 		ft_pa(ary_a_cc, ary_b);
@@ -151,8 +154,9 @@ void ft_sort_x(int *ary_a_cc, int *ary_b, int k, int *num, int flag)
 		ft_ra(ary_a_cc);
 		ft_sort_x(ary_a_cc, ary_b, k - 1, num, 1);
 	}
-	else if (len_b <= 11)
+	else if (len_b <= 20)
 	{
 		ft_sort_xx(ary_a_cc, ary_b);
+		ft_sort_x(ary_a_cc, ary_b, k - 1, num, 1);
 	}
 }
