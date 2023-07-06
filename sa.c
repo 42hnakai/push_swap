@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rb.c                                            :+:      :+:    :+:   */
+/*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 16:02:31 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/06 03:15:27 by hnakai           ###   ########.fr       */
+/*   Created: 2023/07/06 23:24:19 by hnakai            #+#    #+#             */
+/*   Updated: 2023/07/06 23:36:28 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void	ft_rb(int *ary_b)
+void	sa(int *ary_a)
 {
-	int i = 0;
-	int x;
-	x = ary_b[0];
-	while (ary_b[i + 1] != '\0')
-	{
-		ary_b[i] = ary_b[i + 1];
-		i++;
-	}
-	ary_b[i] = x;
-	ary_b[i + 1] = '\0';
-	printf("rb\n");
+	swap(&ary_a[0], &ary_a[1]);
+	printf("sa\n");
 }

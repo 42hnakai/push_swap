@@ -1,7 +1,12 @@
 CC = gcc
 GFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-SRC = $(wildcard ft_*.c) main.c
+SRC = sa.c sb.c ss.c pa.c pb.c ra.c rb.c rr.c rra.c rrb.c rrr.c \
+	sort_two.c sort_three.c sort_four.c sort_five.c sort_many.c revsort_three.c sort8To25.c\
+	coordComp.c isSorted.c getMaxMin.c midian.c  minIndexSign.c swap.c half_b.c\
+	ft_atoi.c ft_strlen.c\
+	push_swap.c\
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
@@ -16,16 +21,18 @@ $(NAME):$(OBJ)
 	$(CC) $(GFLAGS) -c $(SRC)
 
 test : all
-	./push_swap 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1  && \
-	cd push_swap_tester/ && \
-	python3 push_swap_tester.py -l 16 -c 500 -r 1 100 && \
-	cd -
+test: all
+	for i in $$(seq 1 500); do \
+		cd push_swap_tester/ && \
+		python3 push_swap_tester.py -l $$i -c 500 -r 1 $$i && \
+		cd - ; \
+	done
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

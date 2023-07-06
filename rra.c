@@ -1,6 +1,6 @@
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void	ft_rra(int *ary_a)
+void	rra(int *ary_a)
 {
 	size_t len_a;
 	int x;

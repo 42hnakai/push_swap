@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void	ft_rr(int *ary_a, int *ary_b)
+void	rr(int *ary_a, int *ary_b)
 {
 	int i = 0;
 	int x;

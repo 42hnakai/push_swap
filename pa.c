@@ -1,6 +1,6 @@
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void ft_pa(int *ary_a, int *ary_b)
+void pa(int *ary_a, int *ary_b)
 {
 	size_t i;
 	i = ft_strlen(ary_a);

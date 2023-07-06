@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/06/28 16:28:40 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/06 23:50:34 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void ft_push_swap(int *ary_a_cc, int *ary_b, int argc)
+void push_swap(int *ary_a, int *ary_b, int argc)
 {
 	int i;
 	int *num;
 
 	i = 0;
-	while (ary_a_cc[i + 1] != '\0')
-	{
-		if (ary_a_cc[i] > ary_a_cc[i + 1])
-			break;
-		else
-			i++;
-		if (ary_a_cc[i + 1] == '\0')
-			return;
-	}
-	if (argc == 4) // the number of argument is 3
-		ft_sort_three(ary_a_cc);
-	else if (argc <= 6) // the number of argument is 5 or less
-		ft_sort_five(ary_a_cc, ary_b, argc - 1);
-	else // the number of argument is more than 6
+	if (isSorted(ary_a) == true)
+		return;
+	if(argc == 3)
+		sort_two(ary_a);
+	if (argc == 4)
+		sort_three(ary_a);
+	else if (argc == 5)
+		sort_four(ary_a, ary_b);
+	else if (argc == 6)
+		sort_five(ary_a, ary_b);
+	else
 	{
 		num = (int *)calloc(1, sizeof(int) * argc / 2);
+		if (num == NULL)
+		{
+			free(ary_a);
+			free(ary_b);
+			return;
+		}
 		num[1] = (argc - 1) / 2;
 		num[0] = (argc - 1) - num[1];
-		ft_sort_x(ary_a_cc, ary_b, 1, num, 0);
+		sort_many(ary_a, ary_b, 1, num, 0);
 	}
 }
 
@@ -44,7 +47,7 @@ int main(int argc, char *argv[])
 {
 	int *ary_a;
 	int *ary_b;
-	int *ary_a_cc;
+	int *compAry;
 	int i;
 
 	i = 0;
@@ -61,9 +64,9 @@ int main(int argc, char *argv[])
 			ary_a[i] = ft_atoi(&argv[i + 1][0]); // コマンドライン引数の文字列を数字に変換&&コピー
 			i++;
 		}
-		ary_a[i] = '\0';								// 文字列の終わりを示すヌル文字を追加
-		ary_a_cc = ft_compressCoordinates(ary_a, argc); // 座標圧縮をする関数
-		ft_push_swap(ary_a_cc, ary_b, argc);			// 実際にpush_swapする
+		ary_a[i] = '\0';				  // 文字列の終わりを示すヌル文字を追加
+		compAry = coordcomp(ary_a, argc); // 座標圧縮をする関数
+		push_swap(compAry, ary_b, argc);  // 実際にpush_swapする
 	}
 	return (0);
 }

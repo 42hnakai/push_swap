@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sb.c                                            :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:17 by hnakai            #+#    #+#             */
-/*   Updated: 2023/06/27 02:30:45 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/06 23:36:32 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "push_swap.h"
 
-void	ft_sb(int *ary_b)
+void	sb(int *ary_b)
 {
-	ft_swap(&ary_b[0], &ary_b[1]);
+	swap(&ary_b[0], &ary_b[1]);
 	printf("sb\n");
 }
