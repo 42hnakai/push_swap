@@ -6,20 +6,20 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:18:39 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:53:27 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_swap(int *ary_a, int *ary_b, int argc)
+void	push_swap(int *ary_a, int *ary_b, int argc)
 {
-	int i;
-	int *num;
+	int	i;
+	int	*num;
 
 	i = 0;
 	if (is_sorted(ary_a) == true)
-		return;
+		return ;
 	else if ((argc - 1) <= 5)
 		sort_tiny(ary_a, ary_b, argc - 1);
 	else
@@ -29,7 +29,7 @@ void push_swap(int *ary_a, int *ary_b, int argc)
 		{
 			free(ary_a);
 			free(ary_b);
-			return;
+			return ;
 		}
 		else
 		{
@@ -41,12 +41,12 @@ void push_swap(int *ary_a, int *ary_b, int argc)
 	}
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	int *ary_a;
-	int *ary_b;
-	int *compAry;
-	int i;
+	int	*ary_a;
+	int	*ary_b;
+	int	*comp_ary;
+	int	i;
 
 	i = 0;
 	ary_a = (int *)malloc(sizeof(int) * argc);
@@ -59,12 +59,12 @@ int main(int argc, char *argv[])
 	{
 		while (argv[i + 1] != NULL)
 		{
-			ary_a[i] = ft_atoi(&argv[i + 1][0]); // コマンドライン引数の文字列を数字に変換&&コピー
+			ary_a[i] = ft_atoi(&argv[i + 1][0]);
 			i++;
 		}
-		ary_a[i] = '\0';				  // 文字列の終わりを示すヌル文字を追加
-		compAry = coordcomp(ary_a, argc); // 座標圧縮をする関数
-		push_swap(compAry, ary_b, argc);  // 実際にpush_swapする
+		ary_a[i] = '\0';
+		comp_ary = coordcomp(ary_a, argc);
+		push_swap(comp_ary, ary_b, argc);
 	}
 	return (0);
 }

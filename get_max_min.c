@@ -6,13 +6,13 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:20:39 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:43:47 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:48:13 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-max_min	getMaxMin(int *ary)
+max_min	get_max_min(int *ary)
 {
 	max_min	max_min;
 	int		i;

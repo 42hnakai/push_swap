@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 17:50:58 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:29:12 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:49:14 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sort_four(int *ary_x, int *ary_y)
 {
 	max_min	max_min;
 
-	max_min = getMaxMin(ary_x);
+	max_min = get_max_min(ary_x);
 	while (ft_strlen(ary_x) > 3)
 	{
 		if (ary_x[0] == max_min.min)
@@ -65,7 +65,7 @@ void	sort_five(int *ary_x, int *ary_y)
 {
 	max_min	max_min;
 
-	max_min = getMaxMin(ary_x);
+	max_min = get_max_min(ary_x);
 	while (ft_strlen(ary_x) > 3)
 	{
 		if (ary_x[0] == max_min.min || ary_x[0] == max_min.max)

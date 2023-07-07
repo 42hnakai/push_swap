@@ -3,7 +3,7 @@ GFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 SRC = swap.c push.c rotate.c reverse_rotate.c\
 	sort_tiny.c sort_small.c sort_many.c\
-	coordcomp.c isSorted.c getMaxMin.c midian.c  minIndexSign.c half_ary.c push_a_to_b.c\
+	coordcomp.c isSorted.c get_max_min.c midian.c  minIndexSign.c half_ary.c push_a_to_b.c\
 	ft_atoi.c ft_strlen.c\
 	push_swap.c\
 

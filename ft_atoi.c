@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 23:31:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/06 23:34:21 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:55:00 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_check(const char *str)
 		if (ft_isdigit(str[i]))
 			return (i);
 		else if (str[i] == ' ' || str[i] == '\t' || str[i] == '\v'
-				|| str[i] == '\n' || str[i] == '\r' || str[i] == '\f')
+			|| str[i] == '\n' || str[i] == '\r' || str[i] == '\f')
 			i++;
 		else if ((str[i] == '+' || str[i] == '-') && ft_isdigit(str[i + 1]))
 			return (i + 1);

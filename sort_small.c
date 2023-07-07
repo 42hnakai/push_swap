@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 22:31:28 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:41:33 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:49:33 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	reduce_b_three(int *ary_x, int *ary_y, int count)
 
 	while (ft_strlen(ary_y) > 0)
 	{
-		max_min = getMaxMin(ary_y);
+		max_min = get_max_min(ary_y);
 		if (ary_y[0] == max_min.min)
 		{
 			pa(ary_x, ary_y);

@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:30:59 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:41:55 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:57:11 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	sort_five(int *ary_a, int *ary_b);
 void	sort_many(int *ary_a, int *ary_b, int k, int *num);
 void	sort_small(int *ary_x, int *ary_y, int len_b);
 int		midian(int *ary);
-max_min	getMaxMin(int *ary);
+max_min	get_max_min(int *ary);
 int		min_index_sign(int *ary);
 bool	is_sorted(int *ary);
 int		reduce_b_three(int *ary_x, int *ary_y, int count);
