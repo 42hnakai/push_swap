@@ -39,14 +39,16 @@ void sort_three(int *ary_a_cc);
 void revsort_three(int *ary_b);
 void sort_five(int *ary_a, int *ary_b);
 void sort_four(int *ary_x, int *ary_y);
-void sort_many(int *ary_a_cc, int *ary_b, int k, int *num, int flag);
-void sort8to25(int *ary_x, int *ary_y);
+void sort_many(int *ary_a, int *ary_b, int k, int *num, int flag);
+void sort_small(int *ary_x, int *ary_y,int len_b);
 int midian(int *ary);
 max_min getMaxMin(int *ary);
 int min_index_sign(int *ary);
-bool isSorted(int *ary);
-int	reduce_b_three(int *ary_x, int *ary_y);
-int half_b(int *ary_x, int *ary_y);
+bool is_sorted(int *ary);
+int reduce_b_three(int *ary_x, int *ary_y);
 void swap(int *x, int *y);
+void half_a(int *ary_x, int *ary_y, int len);
+int half_b(int *ary_x, int *ary_y, int len);
+void push_a_to_b(int *ary_a, int *ary_b, int n);
 
 #endif

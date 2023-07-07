@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort8To25.c                                        :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 22:31:28 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/06 23:43:21 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 20:34:11 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,34 @@ int	reduce_b_three(int *ary_x, int *ary_y)
 	return (count);
 }
 
-void	sort8to25(int *ary_x, int *ary_y)
+void	sort_small(int *ary_x, int *ary_y, int len_b)
 {
 	int	count;
 
-	count = reduce_b_three(ary_x, ary_y);
-	revsort_three(ary_y);
-	pa(ary_x, ary_y);
-	pa(ary_x, ary_y);
-	pa(ary_x, ary_y);
-	while (count + 3 > 0)
+	if (len_b == 1)
 	{
+		pa(ary_x, ary_y);
 		ra(ary_x);
-		count--;
+	}
+	else if (len_b == 2)
+	{
+		pa(ary_x, ary_y);
+		pa(ary_x, ary_y);
+		sort_two(ary_x);
+		ra(ary_x);
+		ra(ary_x);
+	}
+	else if (len_b <= 25)
+	{
+		count = reduce_b_three(ary_x, ary_y);
+		revsort_three(ary_y);
+		pa(ary_x, ary_y);
+		pa(ary_x, ary_y);
+		pa(ary_x, ary_y);
+		while (count + 3 > 0)
+		{
+			ra(ary_x);
+			count--;
+		}
 	}
 }

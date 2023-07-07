@@ -1,16 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rr.c                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 16:02:25 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/06 03:15:38 by hnakai           ###   ########.fr       */
+/*   Created: 2023/07/07 21:35:00 by hnakai            #+#    #+#             */
+/*   Updated: 2023/07/07 21:35:49 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ra(int *ary_a)
+{
+	int i = 0;
+	int x;
+	x = ary_a[0];
+	while (ary_a[i + 1] != '\0')
+	{
+		ary_a[i] = ary_a[i + 1];
+		i++;
+	}
+	ary_a[i] = x;
+	ary_a[i + 1] = '\0';
+	printf("ra\n");
+}
+
+void	rb(int *ary_b)
+{
+	int i = 0;
+	int x;
+	x = ary_b[0];
+	while (ary_b[i + 1] != '\0')
+	{
+		ary_b[i] = ary_b[i + 1];
+		i++;
+	}
+	ary_b[i] = x;
+	ary_b[i + 1] = '\0';
+	printf("rb\n");
+}
 
 void	rr(int *ary_a, int *ary_b)
 {

@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   push_a_to_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 23:24:19 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/06 23:36:28 by hnakai           ###   ########.fr       */
+/*   Created: 2023/07/07 21:21:54 by hnakai            #+#    #+#             */
+/*   Updated: 2023/07/07 21:23:58 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(int *ary_a)
+void push_a_to_b(int *ary_a, int *ary_b, int n)
 {
-	swap(&ary_a[0], &ary_a[1]);
-	printf("sa\n");
+	int i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (ary_a[0] == (ary_a[ft_strlen(ary_a) - 1] + 1))
+			ra(ary_a);
+		else
+			pb(ary_a, ary_b);
+		i++;
+	}
 }

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-bool isSorted(int *ary)
+bool is_sorted(int *ary)
 {
 	int i;
 	i = 0;

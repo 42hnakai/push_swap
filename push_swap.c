@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/06 23:50:34 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 21:57:17 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void push_swap(int *ary_a, int *ary_b, int argc)
 	int *num;
 
 	i = 0;
-	if (isSorted(ary_a) == true)
+	if (is_sorted(ary_a) == true)
 		return;
-	if(argc == 3)
+	else if(argc == 3)
 		sort_two(ary_a);
-	if (argc == 4)
+	else if (argc == 4)
 		sort_three(ary_a);
 	else if (argc == 5)
 		sort_four(ary_a, ary_b);
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 	ary_b = (int *)calloc(1, sizeof(int) * argc);
 	if (ary_b == NULL)
 		return (0);
-	if (argc > 3)
+	if (argc > 2)
 	{
 		while (argv[i + 1] != NULL)
 		{
