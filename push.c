@@ -6,15 +6,16 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 21:33:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 21:34:08 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 22:26:12 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pa(int *ary_a, int *ary_b)
+void	pa(int *ary_a, int *ary_b)
 {
-	size_t i;
+	size_t	i;
+
 	i = ft_strlen(ary_a);
 	if (ary_b[0] != '\0')
 	{
@@ -35,9 +36,10 @@ void pa(int *ary_a, int *ary_b)
 	printf("pa\n");
 }
 
-void	pb(int *ary_a,int *ary_b)
+void	pb(int *ary_a, int *ary_b)
 {
-	size_t i;
+	size_t	i;
+
 	i = ft_strlen(ary_a);
 	if (ary_a[0] != '\0')
 	{

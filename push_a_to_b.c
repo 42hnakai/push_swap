@@ -6,15 +6,15 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 21:21:54 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 21:23:58 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:42:16 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_a_to_b(int *ary_a, int *ary_b, int n)
+void	push_a_to_b(int *ary_a, int *ary_b, int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < n)

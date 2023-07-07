@@ -6,14 +6,14 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 21:46:41 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 21:48:48 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:43:02 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool is_error(int *ary)
+bool	is_error(int *ary)
 {
-    if (ft_isdigit(ary));
-    
+	if (ft_isdigit(ary))
+		return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 17:50:58 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 20:31:28 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 23:29:12 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,16 @@ void	sort_five(int *ary_x, int *ary_y)
 		ra(ary_x);
 		pa(ary_x, ary_y);
 	}
+}
+
+void	sort_tiny(int *ary_x, int *ary_y, int len)
+{
+	if (len == 2)
+		sort_two(ary_x);
+	else if (len == 3)
+		sort_three(ary_x);
+	else if (len == 4)
+		sort_four(ary_x, ary_y);
+	else if (len == 5)
+		sort_five(ary_x, ary_y);
 }

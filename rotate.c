@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 21:35:00 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 21:35:49 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/07 22:28:50 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	ra(int *ary_a)
 {
-	int i = 0;
-	int x;
+	int	i;
+	int	x;
+
+	i = 0;
 	x = ary_a[0];
 	while (ary_a[i + 1] != '\0')
 	{
@@ -29,8 +31,10 @@ void	ra(int *ary_a)
 
 void	rb(int *ary_b)
 {
-	int i = 0;
-	int x;
+	int	i;
+	int	x;
+
+	i = 0;
 	x = ary_b[0];
 	while (ary_b[i + 1] != '\0')
 	{
@@ -44,9 +48,15 @@ void	rb(int *ary_b)
 
 void	rr(int *ary_a, int *ary_b)
 {
-	int i = 0;
-	int x;
+	int	i;
+	int	j;
+	int	x;
+	int	y;
+
+	i = 0;
+	j = 0;
 	x = ary_a[0];
+	y = ary_b[0];
 	while (ary_a[i + 1] != '\0')
 	{
 		ary_a[i] = ary_a[i + 1];
@@ -54,9 +64,6 @@ void	rr(int *ary_a, int *ary_b)
 	}
 	ary_a[i] = x;
 	ary_a[i + 1] = '\0';
-	int j = 0;
-	int y;
-	y = ary_b[0];
 	while (ary_b[j + 1] != '\0')
 	{
 		ary_b[j] = ary_b[j + 1];
