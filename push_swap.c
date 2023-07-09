@@ -38,33 +38,62 @@ void	push_swap(int *ary_a, int *ary_b, int argc)
 			sort_many(ary_a, ary_b, 1, num);
 			free(num);
 		}
+			free(num);
 	}
 }
+
+
+// __attribute__((destructor)) static void destructor()
+// {
+//     system("leaks -q push_swap");
+// }
 
 int	main(int argc, char *argv[])
 {
 	int	*ary_a;
 	int	*ary_b;
+	char **ary_c;
 	int	*comp_ary;
-	int	i;
+	size_t	i;
+	int j;
+	int k;
 
-	i = 0;
+	i = 1;
+	j = 0;
+	k = 0;
 	ary_a = (int *)malloc(sizeof(int) * argc);
 	if (ary_a == NULL)
 		return (0);
 	ary_b = (int *)calloc(1, sizeof(int) * argc);
 	if (ary_b == NULL)
 		return (0);
-	if (argc > 2)
+	if (argc > 1)
 	{
-		while (argv[i + 1] != NULL)
+		while(argv[i] != NULL)
 		{
-			ary_a[i] = ft_atoi(&argv[i + 1][0]);
+			ary_c = ft_split(argv[i],' ');
+			while(ary_c[j] != NULL)
+			{
+				if(!(is_validnum(ary_c[j])))
+				{
+					printf("error\n");
+					return (0);
+				}
+				ary_a[k]=ft_atoi(ary_c[j]);
+				k++;
+				j++;
+			}
 			i++;
+			j = 0;
 		}
-		ary_a[i] = '\0';
-		comp_ary = coordcomp(ary_a, argc);
-		push_swap(comp_ary, ary_b, argc);
+		ary_a[k] = '\0';
+		comp_ary = coordcomp(ary_a, argc - 1);
+		if(has_dups(comp_ary))
+			printf("error\n");
+		else
+			push_swap(comp_ary, ary_b, argc);
 	}
+	free(ary_a);
+	free(ary_b);
 	return (0);
 }

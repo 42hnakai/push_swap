@@ -19,7 +19,7 @@ void	half_a(int *ary_x, int *ary_y, int len)
 	int	count;
 
 	i = 0;
-	count = 1;
+	count = 0;
 	mid = midian(ary_x);
 	while (i < len)
 	{

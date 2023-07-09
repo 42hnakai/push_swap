@@ -14,32 +14,29 @@
 
 int	*coordcomp(int *ary, int argc)
 {
-	int	*comp_ary;
 	int	i;
 	int	j;
-	int	min_old;
-	int	min_new;
+	int	count;
+	int	*comp_ary;
 
 	comp_ary = (int *)malloc(sizeof(int) * argc);
 	if (!comp_ary)
 		return (0);
-	j = 0;
-	min_old = INT_MIN;
-	while (j < argc)
+	i = 0;
+	count = 0;
+	while (i < argc)
 	{
-		i = 0;
-		min_new = INT_MAX;
-		while (i < argc)
+		j = 0;
+		while (j < argc)
 		{
-			if (min_old < ary[i] && ary[i] < min_new)
-			{
-				min_new = ary[i];
-				comp_ary[i] = j;
-			}
-			i++;
+			if (ary[j] < ary[i])
+				count++;
+			j++;
 		}
-		min_old = min_new;
-		j++;
+		comp_ary[i] = count + 1;
+		count = 0;
+		i++;
 	}
+	comp_ary[i] = '\0';
 	return (comp_ary);
 }

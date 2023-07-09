@@ -41,7 +41,11 @@ void	rrr(int *ary_a, int *ary_b);
 // libft files
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
+size_t	ft_strlen_char(const char *str);
 size_t	ft_strlen(const int *str);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	**ft_split(char const *s, char c);
 
 int		*coordcomp(int *ary, int argc);
 
@@ -62,4 +66,7 @@ void	half_a(int *ary_x, int *ary_y, int len);
 int		half_b(int *ary_x, int *ary_y, int len);
 void	push_a_to_b(int *ary_a, int *ary_b, int n);
 void	sort_tiny(int *ary_x, int *ary_y, int len);
+
+bool	has_dups(int *ary);
+bool	is_validnum(char *ary);
 #endif
