@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:53:27 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/09 22:58:08 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	push_swap(int *ary_a, int *ary_b, int argc)
 		sort_tiny(ary_a, ary_b, argc - 1);
 	else
 	{
-		num = (int *)calloc(1, sizeof(int) * (argc / 25 + 2));
+		num = (int *)malloc(sizeof(int) * (argc));
 		if (num == NULL)
 		{
 			free(ary_a);
@@ -33,12 +33,13 @@ void	push_swap(int *ary_a, int *ary_b, int argc)
 		}
 		else
 		{
+			// for(int j=0;j<18;j++)
+			// 	printf("%d\n",ary_a[j]);
 			num[1] = (argc - 1) / 2;
 			num[0] = (argc - 1) - num[1];
 			sort_many(ary_a, ary_b, 1, num);
 			free(num);
 		}
-			free(num);
 	}
 }
 

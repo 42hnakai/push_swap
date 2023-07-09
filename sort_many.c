@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 23:27:09 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:28:27 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/09 22:58:02 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	sort_many(int *ary_a, int *ary_b, int k, int *num)
 	int	i;
 
 	i = 0;
+	// for(int j=0;j<18;j++)
+	// 	printf("%d\n",ary_a[j]);
+	// printf("%zu\n",ft_strlen(ary_a));
 	if (num[0] == 0)
 		return ;
 	if (num[k - 1] == num[k] || num[k - 1] == num[k] + 1)
