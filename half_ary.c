@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:21:02 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/09 22:42:41 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/09 23:40:19 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	half_a(int *ary_x, int *ary_y, int len)
 
 	i = 0;
 	count = 0;
-	mid = midian(ary_x);
+	mid = midian(ary_x,len);
 	while (i < len)
 	{
 		if (ary_x[0] < mid)
@@ -44,7 +44,7 @@ int	half_b(int *ary_x, int *ary_y, int len)
 
 	i = 0;
 	count = 0;
-	mid = midian(ary_y);
+	mid = midian(ary_y,len);
 	while (i < len)
 	{
 		if (ary_y[0] >= mid)

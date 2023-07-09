@@ -6,28 +6,30 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 22:31:28 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:49:33 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/09 23:49:22 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	reduce_b_three(int *ary_x, int *ary_y, int count)
+int reduce_b_three(int *ary_x, int *ary_y, int len_b, int count)
 {
-	max_min	max_min;
+	max_min max_min;
 
-	while (ft_strlen(ary_y) > 0)
+	while (len_b > 0)
 	{
 		max_min = get_max_min(ary_y);
 		if (ary_y[0] == max_min.min)
 		{
 			pa(ary_x, ary_y);
 			ra(ary_x);
+			len_b -= len_b;
 		}
 		else if (ary_y[0] == max_min.max)
 		{
 			pa(ary_x, ary_y);
 			count += 1;
+			len_b -= len_b;
 		}
 		else
 		{
@@ -40,9 +42,9 @@ int	reduce_b_three(int *ary_x, int *ary_y, int count)
 	return (count);
 }
 
-void	sort_small(int *ary_x, int *ary_y, int len_b)
+void sort_small(int *ary_x, int *ary_y, int len_b)
 {
-	int	count;
+	int count;
 
 	if (len_b == 1)
 	{
@@ -59,7 +61,7 @@ void	sort_small(int *ary_x, int *ary_y, int len_b)
 	}
 	else if (len_b <= 25)
 	{
-		count = reduce_b_three(ary_x, ary_y, 0);
+		count = reduce_b_three(ary_x, ary_y, len_b, 0);
 		while (count > 0)
 		{
 			ra(ary_x);

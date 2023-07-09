@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:30:59 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:57:11 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/09 23:45:45 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	**ft_split(char const *s, char c);
 
-int		*coordcomp(int *ary, int argc);
+int	*coordcomp(int *ary, int count);
 
 // sort files
 void	sort_two(int *ary);
@@ -56,11 +56,11 @@ void	sort_four(int *ary_x, int *ary_y);
 void	sort_five(int *ary_a, int *ary_b);
 void	sort_many(int *ary_a, int *ary_b, int k, int *num);
 void	sort_small(int *ary_x, int *ary_y, int len_b);
-int		midian(int *ary);
+int		midian(int *ary,int count);
 max_min	get_max_min(int *ary);
 int		min_index_sign(int *ary);
 bool	is_sorted(int *ary);
-int		reduce_b_three(int *ary_x, int *ary_y, int count);
+int		reduce_b_three(int *ary_x, int *ary_y, int len_b, int count);
 void	swap(int *x, int *y);
 void	half_a(int *ary_x, int *ary_y, int len);
 int		half_b(int *ary_x, int *ary_y, int len);
