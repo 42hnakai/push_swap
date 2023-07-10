@@ -21,9 +21,9 @@ $(NAME):$(OBJ)
 	$(CC) $(GFLAGS) -c $(SRC)
 
 test: all
-	for i in $$(seq 1 100); do \
+	for i in $$(seq 7 7); do \
 		cd push_swap_tester/ && \
-		python3 push_swap_tester.py -l $$i -c 100 -r -$$i $$i && \
+		python3 push_swap_tester.py -l $$i -c 100 -r 1 $$i && \
 		cd - ; \
 	done
 

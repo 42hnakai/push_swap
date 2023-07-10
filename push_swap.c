@@ -6,13 +6,13 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/09 23:35:22 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 21:03:01 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_swap(int *ary_a, int *ary_b, int argc)
+void push_swap(int *ary_a, int *ary_b, int len_a)
 {
 	int i;
 	int *num;
@@ -20,11 +20,11 @@ void push_swap(int *ary_a, int *ary_b, int argc)
 	i = 0;
 	if (is_sorted(ary_a) == true)
 		return;
-	else if (argc<= 5)
-		sort_tiny(ary_a, ary_b, argc);
+	else if (len_a <= 5)
+		sort_tiny(ary_a, ary_b, len_a, 0);
 	else
 	{
-		num = (int *)malloc(sizeof(int) * (argc));
+		num = (int *)malloc(sizeof(int) * len_a);
 		if (num == NULL)
 		{
 			free(ary_a);
@@ -33,10 +33,8 @@ void push_swap(int *ary_a, int *ary_b, int argc)
 		}
 		else
 		{
-			// for(int j=0;j<18;j++)
-			// 	printf("%d\n",ary_a[j]);
-			num[1] = argc / 2;
-			num[0] = argc - num[1];
+			num[1] = len_a / 2;
+			num[0] = len_a - num[1];
 			sort_many(ary_a, ary_b, 1, num);
 			free(num);
 		}
@@ -77,7 +75,7 @@ int main(int argc, char *argv[])
 	ary_a = (int *)malloc(sizeof(int) * count);
 	if (ary_a == NULL)
 		return (0);
-	ary_b = (int *)calloc(1, sizeof(int) * count);
+	ary_b = (int *)malloc(sizeof(int) * count);
 	if (ary_b == NULL)
 		return (0);
 	i = 1;
@@ -101,12 +99,15 @@ int main(int argc, char *argv[])
 			i++;
 			j = 0;
 		}
-		ary_a[k] = '\0';
 		comp_ary = coordcomp(ary_a, count);
 		if (has_dups(comp_ary))
 			printf("error\n");
-		else
-			push_swap(comp_ary, ary_b, count);
+		// for(int l=0;l<count;l++)
+		// 	printf("%d",comp_ary[l]);
+		// else
+		push_swap(comp_ary, ary_b, count);
+		// for(int l=0;l<count;l++)
+		// 	printf("%d",comp_ary[l]);
 	}
 	free(ary_a);
 	free(ary_b);

@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:30:59 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/09 23:45:45 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 20:41:40 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ typedef struct
 void	sa(int *ary_a);
 void	sb(int *ary_b);
 void	ss(int *ary_a, int *ary_b);
-void	pa(int *ary_a, int *ary_b);
-void	pb(int *ary_a, int *ary_b);
-void	ra(int *ary_a);
-void	rb(int *ary_b);
-void	rr(int *ary_a, int *ary_b);
-void	rra(int *ary_a);
-void	rrb(int *ary_b);
-void	rrr(int *ary_a, int *ary_b);
+void	pa(int *ary_a, int *ary_b, int len_a, int len_b);
+void	pb(int *ary_a, int *ary_b, int len_a, int len_b);
+void	ra(int *ary_a, int len_a);
+void	rb(int *ary_b,int len_b);
+void	rr(int *ary_a, int *ary_b,int len_a,int len_b);
+void	rra(int *ary_a,int len_a);
+void	rrb(int *ary_b,int len_b);
+void	rrr(int *ary_a, int *ary_b,int len_a,int len_b);
 
 // libft files
 int		ft_isdigit(int c);
@@ -51,21 +51,21 @@ int	*coordcomp(int *ary, int count);
 
 // sort files
 void	sort_two(int *ary);
-void	sort_three(int *ary_a_cc);
-void	sort_four(int *ary_x, int *ary_y);
-void	sort_five(int *ary_a, int *ary_b);
+void	sort_three(int *ary, int len_x);
+void	sort_four(int *ary_x, int *ary_y, int len_x, int len_y);
+void	sort_five(int *ary_x, int *ary_y, int len_x, int len_y);
 void	sort_many(int *ary_a, int *ary_b, int k, int *num);
-void	sort_small(int *ary_x, int *ary_y, int len_b);
+void	sort_small(int *ary_x, int *ary_y, int len_x, int len_y);
 int		midian(int *ary,int count);
-max_min	get_max_min(int *ary);
-int		min_index_sign(int *ary);
+max_min	get_max_min(int *ary,int len);
+int		min_index_sign(int *ary,int len);
 bool	is_sorted(int *ary);
-int		reduce_b_three(int *ary_x, int *ary_y, int len_b, int count);
+int		reduce_b_three(int *ary_x, int *ary_y, int len_x, int len_y, int count);
 void	swap(int *x, int *y);
 void	half_a(int *ary_x, int *ary_y, int len);
 int		half_b(int *ary_x, int *ary_y, int len);
-void	push_a_to_b(int *ary_a, int *ary_b, int n);
-void	sort_tiny(int *ary_x, int *ary_y, int len);
+int		push_a_to_b(int *ary_a, int *ary_b, int n);
+void	sort_tiny(int *ary_x, int *ary_y, int len_x, int len_y);
 
 bool	has_dups(int *ary);
 bool	is_validnum(char *ary);

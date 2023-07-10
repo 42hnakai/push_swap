@@ -6,26 +6,24 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:50:15 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/07 23:49:45 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 18:38:01 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	min_index_sign(int *ary)
+int	min_index_sign(int *ary,int len)
 {
 	int		i;
 	int		minindex;
 	int		maxindex;
-	int		len_ary;
 	max_min	max_min;
 
 	i = 0;
 	minindex = 0;
 	maxindex = 0;
-	len_ary = ft_strlen(ary);
-	max_min = get_max_min(ary);
-	while (i < len_ary)
+	max_min = get_max_min(ary,len);
+	while (i < len)
 	{
 		if (ary[i] == max_min.min)
 			minindex = i;
@@ -33,9 +31,9 @@ int	min_index_sign(int *ary)
 			maxindex = i;
 		i++;
 	}
-	if (minindex < (len_ary - maxindex))
+	if (minindex < (len - maxindex))
 		return (0);
-	else if (maxindex < (len_ary - minindex))
+	else if (maxindex < (len - minindex))
 		return (1);
 	else
 		return (1);
