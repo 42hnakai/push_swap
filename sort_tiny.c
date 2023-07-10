@@ -6,114 +6,96 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 17:50:58 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 20:35:25 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 23:46:52 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_two(int *ary)
+void sort_two(t_ary_info aryinfo)
 {
-	if (ary[0] > ary[1])
-		sa(ary);
+	if (aryinfo.ary_a[0] > aryinfo.ary_a[1])
+		sa(aryinfo.ary_a);
 }
 
-void sort_three(int *ary, int len_x)
+void sort_three(t_ary_info aryinfo)
 {
-	if ((ary[0] < ary[1]) && (ary[0] < ary[2]) && (ary[2] < ary[1]))
+	if ((aryinfo.ary_a[0] < aryinfo.ary_a[1]) && (aryinfo.ary_a[0] < aryinfo.ary_a[2]) && (aryinfo.ary_a[2] < aryinfo.ary_a[1]))
 	{
-		ra(ary, len_x);
-		sa(ary);
-		rra(ary, len_x);
+		ra(aryinfo);
+		sa(aryinfo.ary_a);
+		rra(aryinfo);
 	}
-	else if (ary[1] < ary[0] && ary[1] < ary[2])
+	else if (aryinfo.ary_a[1] < aryinfo.ary_a[0] && aryinfo.ary_a[1] < aryinfo.ary_a[2])
 	{
-		if (ary[0] < ary[2])
-			sa(ary);
+		if (aryinfo.ary_a[0] < aryinfo.ary_a[2])
+			sa(aryinfo.ary_a);
 		else
-			ra(ary, len_x);
+			ra(aryinfo);
 	}
-	else if (ary[2] < ary[0] && ary[2] < ary[1])
+	else if (aryinfo.ary_a[2] < aryinfo.ary_a[0] && aryinfo.ary_a[2] < aryinfo.ary_a[1])
 	{
-		if (ary[0] < ary[1])
-			rra(ary, len_x);
+		if (aryinfo.ary_a[0] < aryinfo.ary_a[1])
+			rra(aryinfo);
 		else
 		{
-			sa(ary);
-			rra(ary, len_x);
+			sa(aryinfo.ary_a);
+			rra(aryinfo);
 		}
 	}
 }
 
-void sort_four(int *ary_x, int *ary_y, int len_x, int len_y)
+void sort_four(t_ary_info aryinfo)
 {
 	max_min max_min;
 
-	max_min = get_max_min(ary_x, len_x);
-	while (len_x > 3)
+	max_min = get_max_min(aryinfo.ary_a, aryinfo.len_a);
+	while (aryinfo.len_a > 3)
 	{
-		if (ary_x[0] == max_min.min)
-		{
-			pb(ary_x, ary_y, len_x, len_y);
-			len_x -= 1;
-			len_y += 1;
-		}
+		if (aryinfo.ary_a[0] == max_min.min)
+			pb(aryinfo);
 		else
-			ra(ary_x, len_x);
+			ra(aryinfo);
 	}
-	sort_three(ary_x, len_x);
-	pa(ary_x, ary_y, len_x, len_y);
-	len_x += 1;
-	len_y -= 1;
+	sort_three(aryinfo);
+	pa(aryinfo);
 }
 
-void sort_five(int *ary_x, int *ary_y, int len_x, int len_y)
+void sort_five(t_ary_info aryinfo)
 {
 	max_min max_min;
 
-	max_min = get_max_min(ary_x, len_x);
-	while (len_x > 3)
+	max_min = get_max_min(aryinfo.ary_a, aryinfo.len_a);
+	while (aryinfo.len_a > 3)
 	{
-		if (ary_x[0] == max_min.min || ary_x[0] == max_min.max)
-		{
-			pb(ary_x, ary_y, len_x, len_y);
-			len_x -= 1;
-			len_y += 1;
-		}
+		if (aryinfo.ary_a[0] == max_min.min || aryinfo.ary_a[0] == max_min.max)
+			pb(aryinfo);
 		else
-			ra(ary_x, len_x);
+			ra(aryinfo);
 	}
-	sort_three(ary_x, len_x);
-	if (ary_y[0] == max_min.min)
+	sort_three(aryinfo);
+	if (aryinfo.ary_b[0] == max_min.min)
 	{
-		pa(ary_x, ary_y, len_x, len_y);
-		len_x += 1;
-		len_y -= 1;
-		pa(ary_x, ary_y, len_x, len_y);
-		len_x += 1;
-		len_y -= 1;
-		ra(ary_x, len_x);
+		pa(aryinfo);
+		pa(aryinfo);
+		ra(aryinfo);
 	}
 	else
 	{
-		pa(ary_x, ary_y, len_x, len_y);
-		len_x += 1;
-		len_y -= 1;
-		ra(ary_x, len_x);
-		pa(ary_x, ary_y, len_x, len_y);
-		len_x += 1;
-		len_y -= 1;
+		pa(aryinfo);
+		ra(aryinfo);
+		pa(aryinfo);
 	}
 }
 
-void sort_tiny(int *ary_x, int *ary_y, int len_x, int len_y)
+void sort_tiny(t_ary_info aryinfo)
 {
-	if (len_x == 2)
-		sort_two(ary_x);
-	else if (len_x == 3)
-		sort_three(ary_x, len_x);
-	else if (len_x == 4)
-		sort_four(ary_x, ary_y, len_x, len_y);
-	else if (len_x == 5)
-		sort_five(ary_x, ary_y, len_x, len_y);
+	if (aryinfo.len_a == 2)
+		sort_two(aryinfo);
+	else if (aryinfo.len_a == 3)
+		sort_three(aryinfo);
+	else if (aryinfo.len_a == 4)
+		sort_four(aryinfo);
+	else if (aryinfo.len_a == 5)
+		sort_five(aryinfo);
 }

@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:30:59 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 20:41:40 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 23:59:20 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,27 @@ typedef struct
 	int	max;
 } max_min;
 
+typedef struct s_ary_info
+{
+	int	*ary_a;
+	int *ary_b;
+	int	len_a;
+	int len_b;
+} t_ary_info;
+
+
 // push_swapフォルダ下にあるファイル内の関数を宣言
-void	sa(int *ary_a);
-void	sb(int *ary_b);
-void	ss(int *ary_a, int *ary_b);
-void	pa(int *ary_a, int *ary_b, int len_a, int len_b);
-void	pb(int *ary_a, int *ary_b, int len_a, int len_b);
-void	ra(int *ary_a, int len_a);
-void	rb(int *ary_b,int len_b);
-void	rr(int *ary_a, int *ary_b,int len_a,int len_b);
-void	rra(int *ary_a,int len_a);
-void	rrb(int *ary_b,int len_b);
-void	rrr(int *ary_a, int *ary_b,int len_a,int len_b);
+void		sa(int *ary_a);
+void		sb(int *ary_b);
+void		ss(int *ary_a, int *ary_b);
+t_ary_info	pa(t_ary_info aryinfo);
+t_ary_info	pb(t_ary_info aryinfo);
+void		ra(t_ary_info aryinfo);
+void		ra(t_ary_info aryinfo);
+void		rr(t_ary_info aryinfo);
+void		rra(t_ary_info aryinfo);
+void		rrb(t_ary_info aryinfo);
+void		rrr(t_ary_info aryinfo);
 
 // libft files
 int		ft_isdigit(int c);
@@ -50,22 +59,24 @@ char	**ft_split(char const *s, char c);
 int	*coordcomp(int *ary, int count);
 
 // sort files
-void	sort_two(int *ary);
-void	sort_three(int *ary, int len_x);
-void	sort_four(int *ary_x, int *ary_y, int len_x, int len_y);
-void	sort_five(int *ary_x, int *ary_y, int len_x, int len_y);
-void	sort_many(int *ary_a, int *ary_b, int k, int *num);
-void	sort_small(int *ary_x, int *ary_y, int len_x, int len_y);
+void	sort_two(t_ary_info aryinfo);
+void	sort_three(t_ary_info aryinfo);
+void	sort_four(t_ary_info aryinfo);
+void	sort_five(t_ary_info aryinfo);
+
+void	sort_tiny(t_ary_info aryinfo);
+void	sort_small(t_ary_info aryinfo);
+void	sort_many(t_ary_info aryinfo, int k, int *num,int flag);
+
 int		midian(int *ary,int count);
 max_min	get_max_min(int *ary,int len);
 int		min_index_sign(int *ary,int len);
 bool	is_sorted(int *ary);
-int		reduce_b_three(int *ary_x, int *ary_y, int len_x, int len_y, int count);
+int		reduce_b_zero(t_ary_info aryinfo, int count);
 void	swap(int *x, int *y);
-void	half_a(int *ary_x, int *ary_y, int len);
-int		half_b(int *ary_x, int *ary_y, int len);
-int		push_a_to_b(int *ary_a, int *ary_b, int n);
-void	sort_tiny(int *ary_x, int *ary_y, int len_x, int len_y);
+void	half_a(t_ary_info aryinfo);
+int		half_b(t_ary_info aryinfo);
+int		push_a_to_b(t_ary_info aryinfo, int n);
 
 bool	has_dups(int *ary);
 bool	is_validnum(char *ary);

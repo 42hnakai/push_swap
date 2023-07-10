@@ -6,36 +6,32 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 21:03:01 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 23:40:53 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_swap(int *ary_a, int *ary_b, int len_a)
+void push_swap(t_ary_info aryinfo)
 {
 	int i;
 	int *num;
 
 	i = 0;
-	if (is_sorted(ary_a) == true)
+	if (is_sorted(aryinfo.len_a) == true)
 		return;
-	else if (len_a <= 5)
-		sort_tiny(ary_a, ary_b, len_a, 0);
+	else if (aryinfo.len_a <= 5)
+		sort_tiny(aryinfo);
 	else
 	{
-		num = (int *)malloc(sizeof(int) * len_a);
+		num = (int *)malloc(sizeof(int) * aryinfo.len_a);
 		if (num == NULL)
-		{
-			free(ary_a);
-			free(ary_b);
 			return;
-		}
 		else
 		{
-			num[1] = len_a / 2;
-			num[0] = len_a - num[1];
-			sort_many(ary_a, ary_b, 1, num);
+			num[1] = aryinfo.len_a / 2;
+			num[0] = aryinfo.len_a - num[1];
+			sort_many(aryinfo, 1, num, 1);
 			free(num);
 		}
 	}
@@ -48,8 +44,7 @@ void push_swap(int *ary_a, int *ary_b, int len_a)
 
 int main(int argc, char *argv[])
 {
-	int *ary_a;
-	int *ary_b;
+	t_ary_info aryinfo;
 	char **ary_c;
 	int *comp_ary;
 	size_t i;
@@ -72,11 +67,11 @@ int main(int argc, char *argv[])
 		i++;
 		j = 0;
 	}
-	ary_a = (int *)malloc(sizeof(int) * count);
-	if (ary_a == NULL)
+	aryinfo.ary_a = (int *)malloc(sizeof(int) * count);
+	if (aryinfo.ary_a == NULL)
 		return (0);
-	ary_b = (int *)malloc(sizeof(int) * count);
-	if (ary_b == NULL)
+	aryinfo.ary_b = (int *)malloc(sizeof(int) * count);
+	if (aryinfo.ary_b == NULL)
 		return (0);
 	i = 1;
 	j = 0;
@@ -92,24 +87,24 @@ int main(int argc, char *argv[])
 					printf("error\n");
 					return (0);
 				}
-				ary_a[k] = ft_atoi(ary_c[j]);
+				aryinfo.ary_a[k] = ft_atoi(ary_c[j]);
 				k++;
 				j++;
 			}
 			i++;
 			j = 0;
 		}
-		comp_ary = coordcomp(ary_a, count);
+		comp_ary = coordcomp(aryinfo.ary_a, count);
 		if (has_dups(comp_ary))
 			printf("error\n");
 		// for(int l=0;l<count;l++)
 		// 	printf("%d",comp_ary[l]);
 		// else
-		push_swap(comp_ary, ary_b, count);
+		push_swap(aryinfo);
 		// for(int l=0;l<count;l++)
 		// 	printf("%d",comp_ary[l]);
 	}
-	free(ary_a);
-	free(ary_b);
+	free(aryinfo.ary_a);
+	free(aryinfo.ary_b);
 	return (0);
 }

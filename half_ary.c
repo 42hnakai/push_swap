@@ -6,37 +6,32 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:21:02 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 20:45:01 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 23:58:10 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void half_a(int *ary_x, int *ary_y, int len_x, int len_y)
+void half_a(t_ary_info aryinfo)
 {
 	int i;
 	int mid;
-	int count;
 
 	i = 0;
-	count = 0;
-	mid = midian(ary_x, len_x);
-	while (i < len)
+	mid = midian(aryinfo.ary_a, aryinfo.len_a);
+	while (i < aryinfo.len_a)
 	{
-		if (ary_x[0] < mid)
-		{
-			pb(ary_x, ary_y, len_x, len_y);
-			count += 1;
-		}
+		if (aryinfo.ary_a[0] < mid)
+			pb(aryinfo); // len_bが１だけ増えてる？？
 		else
-			ra(ary_x,len_x);
+			ra(aryinfo);
 		i++;
-		if (count == mid - 1)
+		if (aryinfo.len_b == mid - 1)
 			break;
 	}
 }
 
-int half_b(int *ary_x, int *ary_y, int len)
+int half_b(t_ary_info aryinfo)
 {
 	int i;
 	int mid;
@@ -44,16 +39,16 @@ int half_b(int *ary_x, int *ary_y, int len)
 
 	i = 0;
 	count = 0;
-	mid = midian(ary_y, len);
-	while (i < len)
+	mid = midian(aryinfo.ary_b, aryinfo.len_b);
+	while (i < aryinfo.len_b)
 	{
-		if (ary_y[0] >= mid)
+		if (aryinfo.ary_y[0] >= mid)
 		{
-			pa(ary_x, ary_y);
+			pa(aryinfo);
 			count += 1;
 		}
 		else
-			rb(ary_y);
+			rb(aryinfo);
 		i++;
 	}
 	return (count);

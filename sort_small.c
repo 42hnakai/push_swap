@@ -6,71 +6,63 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 22:31:28 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 20:41:59 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 23:39:31 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int reduce_b_three(int *ary_x, int *ary_y, int len_x, int len_y, int count)
+int reduce_b_zero(t_ary_info aryinfo, int count)
 {
 	max_min max_min;
 
-	while (len_y > 0)
+	while (aryinfo.len_b > 0)
 	{
-		max_min = get_max_min(ary_y, len_y);
-		if (ary_y[0] == max_min.min)
+		max_min = get_max_min(aryinfo.ary_b, aryinfo.len_b);
+		if (aryinfo.ary_b[0] == max_min.min)
 		{
-			pa(ary_x, ary_y, len_x, len_y);
-			len_x += 1;
-			len_y -= 1;
-			ra(ary_x, len_x);
+			pa(aryinfo);
+			ra(aryinfo);
 		}
-		else if (ary_y[0] == max_min.max)
+		else if (aryinfo.ary_b[0] == max_min.max)
 		{
-			pa(ary_x, ary_y, len_x, len_y);
-			len_x += 1;
-			len_y -= 1;
+			pa(aryinfo);
 			count += 1;
 		}
 		else
 		{
-			if (min_index_sign(ary_y, len_y) == 0)
-				rb(ary_y, len_y);
-			else if (min_index_sign(ary_y, len_y) == 1)
-				rrb(ary_y, len_y);
+			if (min_index_sign(aryinfo.ary_b,aryinfo.len_b) == 0)
+				rb(aryinfo);
+			else if (min_index_sign(aryinfo.ary_b,aryinfo.len_b) == 1)
+				rrb(aryinfo);
 		}
 	}
 	return (count);
 }
 
-void sort_small(int *ary_x, int *ary_y, int len_x, int len_y)
+void sort_small(t_ary_info aryinfo)
 {
 	int count;
 
-	if (len_y == 1)
+	if (aryinfo.len_b == 1)
 	{
-		pa(ary_x, ary_y, len_x, len_y);
-		ra(ary_x, len_x);
+		pa(aryinfo);
+		ra(aryinfo);
 	}
-	else if (len_y == 2)
+	else if (aryinfo.len_b == 2)
 	{
-		pa(ary_x, ary_y, len_x, len_y);
-		len_x += 1;
-		len_y -= 1;
-		pa(ary_x, ary_y, len_x, len_y);
-		len_x += 1;
-		len_y -= 1;
-		sort_two(ary_x);
-		ra(ary_x, len_x);
-		ra(ary_x, len_x);
+		pa(aryinfo);
+		pa(aryinfo);
+		sort_two(aryinfo);
+		ra(aryinfo);
+		ra(aryinfo);
 	}
-	else if (len_y <= 25)
+	else if (aryinfo.len_b <= 25)
 	{
-		count = reduce_b_three(ary_x, ary_y, len_x, len_y, 0);
+		count = reduce_b_zero(aryinfo, 0);
 		while (count > 0)
 		{
-			ra(ary_x, len_x);
+			ra(aryinfo);
 			count--;
 		}
 	}

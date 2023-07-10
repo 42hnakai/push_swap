@@ -6,38 +6,36 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 23:27:09 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 20:58:32 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/10 23:48:51 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_many(int *ary_a,int *ary_b, int k, int *num)
+void sort_many(t_ary_info aryinfo, int k, int *num, int flag)
 {
 	int i;
-	int len_b;
-	int len_a;
 
 	i = 0;
 	if (num[0] == 0)
 		return;
-	if (num[k - 1] == num[k] || num[k - 1] == num[k] + 1)
-		half_a(ary_a, ary_b, num[0] + num[1]);
+	if (flag == 1)
+		half_a(aryinfo);
 	else
-		num[k] = push_a_to_b(ary_a, ary_b, num[k]);
-	len_b = num[k];
+		num[k] = push_a_to_b(aryinfo, num[k]);
+	aryinfo.len_b = num[k];
 	num[k] = 0;
-	while (len_b > 25)
+	while (aryinfo.len_b > 25)
 	{
-		num[k] = half_b(ary_a, ary_b, len_b);
-		len_b = len_b - num[k];
+		num[k] = half_b(aryinfo);
+		aryinfo.len_b = aryinfo.len_b - num[k];
 		k = k + 1;
 	}
-	if (len_b == 0)
+	if (aryinfo.len_b == 0)
 		return;
 	else
 	{
-		sort_small(ary_a, ary_b, len_a,len_b);
-		sort_many(ary_a, ary_b, k - 1, num);
+		sort_small(aryinfo);
+		sort_many(aryinfo, k - 1, num, 0);
 	}
 }
