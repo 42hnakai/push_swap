@@ -12,23 +12,26 @@
 
 #include "push_swap.h"
 
-void half_a(t_ary_info aryinfo)
+t_ary_info half_a(t_ary_info aryinfo)
 {
 	int i;
 	int mid;
+	int len_a;
 
 	i = 0;
 	mid = midian(aryinfo.ary_a, aryinfo.len_a);
-	while (i < aryinfo.len_a)
+	len_a=aryinfo.len_a;
+	while (i < len_a)
 	{
 		if (aryinfo.ary_a[0] < mid)
-			pb(aryinfo); // len_bが１だけ増えてる？？
+			aryinfo = pb(aryinfo); // len_bが１だけ増えてる？？
 		else
 			ra(aryinfo);
 		i++;
 		if (aryinfo.len_b == mid - 1)
 			break;
 	}
+	return (aryinfo);
 }
 
 int half_b(t_ary_info aryinfo)
@@ -36,15 +39,17 @@ int half_b(t_ary_info aryinfo)
 	int i;
 	int mid;
 	int count;
+	int len_b;
 
 	i = 0;
 	count = 0;
 	mid = midian(aryinfo.ary_b, aryinfo.len_b);
-	while (i < aryinfo.len_b)
+	len_b = aryinfo.len_b;
+	while (i < len_b)
 	{
-		if (aryinfo.ary_y[0] >= mid)
+		if (aryinfo.ary_b[0] >= mid)
 		{
-			pa(aryinfo);
+			aryinfo = pa(aryinfo);
 			count += 1;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 13:37:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 23:40:53 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/11 22:01:35 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void push_swap(t_ary_info aryinfo)
 	int *num;
 
 	i = 0;
-	if (is_sorted(aryinfo.len_a) == true)
+	if (is_sorted(aryinfo.ary_a) == true)
 		return;
 	else if (aryinfo.len_a <= 5)
 		sort_tiny(aryinfo);
@@ -32,15 +32,15 @@ void push_swap(t_ary_info aryinfo)
 			num[1] = aryinfo.len_a / 2;
 			num[0] = aryinfo.len_a - num[1];
 			sort_many(aryinfo, 1, num, 1);
-			free(num);
+			// free(num);
 		}
 	}
 }
 
-// __attribute__((destructor)) static void destructor()
-// {
-//     system("leaks -q push_swap");
-// }
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q push_swap");
+}
 
 int main(int argc, char *argv[])
 {
@@ -72,7 +72,10 @@ int main(int argc, char *argv[])
 		return (0);
 	aryinfo.ary_b = (int *)malloc(sizeof(int) * count);
 	if (aryinfo.ary_b == NULL)
+	{
+		free(aryinfo.ary_a);
 		return (0);
+	}
 	i = 1;
 	j = 0;
 	if (argc > 1)
@@ -94,16 +97,16 @@ int main(int argc, char *argv[])
 			i++;
 			j = 0;
 		}
-		comp_ary = coordcomp(aryinfo.ary_a, count);
-		if (has_dups(comp_ary))
-			printf("error\n");
-		// for(int l=0;l<count;l++)
-		// 	printf("%d",comp_ary[l]);
-		// else
-		push_swap(aryinfo);
-		// for(int l=0;l<count;l++)
-		// 	printf("%d",comp_ary[l]);
 	}
+	comp_ary = coordcomp(aryinfo.ary_a, count);
+	aryinfo.ary_a = comp_ary;
+	aryinfo.len_a = count;
+	aryinfo.len_b = 0;
+	if (has_dups(comp_ary))
+		printf("error\n");
+	else
+		push_swap(aryinfo);
+	free(comp_ary);
 	free(aryinfo.ary_a);
 	free(aryinfo.ary_b);
 	return (0);

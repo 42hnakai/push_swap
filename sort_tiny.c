@@ -53,12 +53,12 @@ void sort_four(t_ary_info aryinfo)
 	while (aryinfo.len_a > 3)
 	{
 		if (aryinfo.ary_a[0] == max_min.min)
-			pb(aryinfo);
+			aryinfo = pb(aryinfo);
 		else
 			ra(aryinfo);
 	}
 	sort_three(aryinfo);
-	pa(aryinfo);
+	aryinfo = pa(aryinfo);
 }
 
 void sort_five(t_ary_info aryinfo)
@@ -69,22 +69,22 @@ void sort_five(t_ary_info aryinfo)
 	while (aryinfo.len_a > 3)
 	{
 		if (aryinfo.ary_a[0] == max_min.min || aryinfo.ary_a[0] == max_min.max)
-			pb(aryinfo);
+			aryinfo = pb(aryinfo);
 		else
 			ra(aryinfo);
 	}
 	sort_three(aryinfo);
 	if (aryinfo.ary_b[0] == max_min.min)
 	{
-		pa(aryinfo);
-		pa(aryinfo);
+		aryinfo = pa(aryinfo);
+		aryinfo = pa(aryinfo);
 		ra(aryinfo);
 	}
 	else
 	{
-		pa(aryinfo);
+		aryinfo = pa(aryinfo);
 		ra(aryinfo);
-		pa(aryinfo);
+		aryinfo = pa(aryinfo);
 	}
 }
 

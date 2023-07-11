@@ -20,14 +20,14 @@ void sort_many(t_ary_info aryinfo, int k, int *num, int flag)
 	if (num[0] == 0)
 		return;
 	if (flag == 1)
-		half_a(aryinfo);
-	else
-		num[k] = push_a_to_b(aryinfo, num[k]);
-	aryinfo.len_b = num[k];
+		aryinfo = half_a(aryinfo);
+	if(flag == 0)
+		aryinfo= push_a_to_b(aryinfo, num[k]);
 	num[k] = 0;
 	while (aryinfo.len_b > 25)
 	{
 		num[k] = half_b(aryinfo);
+		aryinfo.len_a = aryinfo.len_a + num[k];
 		aryinfo.len_b = aryinfo.len_b - num[k];
 		k = k + 1;
 	}
@@ -35,7 +35,10 @@ void sort_many(t_ary_info aryinfo, int k, int *num, int flag)
 		return;
 	else
 	{
-		sort_small(aryinfo);
-		sort_many(aryinfo, k - 1, num, 0);
+		aryinfo = sort_small(aryinfo);
+		if(k == 0)
+			sort_many(aryinfo, k, num, 0);
+		else
+			sort_many(aryinfo, k - 1, num, 0);
 	}
 }

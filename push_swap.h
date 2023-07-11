@@ -41,7 +41,7 @@ void		ss(int *ary_a, int *ary_b);
 t_ary_info	pa(t_ary_info aryinfo);
 t_ary_info	pb(t_ary_info aryinfo);
 void		ra(t_ary_info aryinfo);
-void		ra(t_ary_info aryinfo);
+void		rb(t_ary_info aryinfo);
 void		rr(t_ary_info aryinfo);
 void		rra(t_ary_info aryinfo);
 void		rrb(t_ary_info aryinfo);
@@ -64,9 +64,9 @@ void	sort_three(t_ary_info aryinfo);
 void	sort_four(t_ary_info aryinfo);
 void	sort_five(t_ary_info aryinfo);
 
-void	sort_tiny(t_ary_info aryinfo);
-void	sort_small(t_ary_info aryinfo);
-void	sort_many(t_ary_info aryinfo, int k, int *num,int flag);
+void		sort_tiny(t_ary_info aryinfo);
+t_ary_info	sort_small(t_ary_info aryinfo);
+void		sort_many(t_ary_info aryinfo, int k, int *num,int flag);
 
 int		midian(int *ary,int count);
 max_min	get_max_min(int *ary,int len);
@@ -74,9 +74,9 @@ int		min_index_sign(int *ary,int len);
 bool	is_sorted(int *ary);
 int		reduce_b_zero(t_ary_info aryinfo, int count);
 void	swap(int *x, int *y);
-void	half_a(t_ary_info aryinfo);
+t_ary_info	half_a(t_ary_info aryinfo);
 int		half_b(t_ary_info aryinfo);
-int		push_a_to_b(t_ary_info aryinfo, int n);
+t_ary_info	push_a_to_b(t_ary_info aryinfo, int n);
 
 bool	has_dups(int *ary);
 bool	is_validnum(char *ary);

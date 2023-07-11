@@ -12,21 +12,18 @@
 
 #include "push_swap.h"
 
-int push_a_to_b(t_ary_info aryinfo, int n)
+t_ary_info push_a_to_b(t_ary_info aryinfo, int n)
 {
 	int i;
 
 	i = 0;
 	while (i < n)
 	{
-		if (aryinfo.ary_a[0] == (aryinfo.ary_a[aryinfo.len_a - 1] + 1))
+		if (aryinfo.ary_a[0] == (aryinfo.ary_a[aryinfo.len_a - 1]) + 1)
 			ra(aryinfo);
 		else
-		{
-			pb(aryinfo);
-			aryinfo.len_b += 1;
-		}
+			aryinfo = pb(aryinfo);
 		i++;
 	}
-	return (aryinfo.len_b);
+	return (aryinfo);
 }

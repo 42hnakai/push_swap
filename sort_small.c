@@ -21,12 +21,12 @@ int reduce_b_zero(t_ary_info aryinfo, int count)
 		max_min = get_max_min(aryinfo.ary_b, aryinfo.len_b);
 		if (aryinfo.ary_b[0] == max_min.min)
 		{
-			pa(aryinfo);
+			aryinfo = pa(aryinfo);
 			ra(aryinfo);
 		}
 		else if (aryinfo.ary_b[0] == max_min.max)
 		{
-			pa(aryinfo);
+			aryinfo = pa(aryinfo);
 			count += 1;
 		}
 		else
@@ -40,30 +40,35 @@ int reduce_b_zero(t_ary_info aryinfo, int count)
 	return (count);
 }
 
-void sort_small(t_ary_info aryinfo)
+t_ary_info sort_small(t_ary_info aryinfo)
 {
 	int count;
 
 	if (aryinfo.len_b == 1)
 	{
-		pa(aryinfo);
+		aryinfo = pa(aryinfo);
 		ra(aryinfo);
+		return (aryinfo);
 	}
 	else if (aryinfo.len_b == 2)
 	{
-		pa(aryinfo);
-		pa(aryinfo);
+		aryinfo = pa(aryinfo);
+		aryinfo = pa(aryinfo);
 		sort_two(aryinfo);
 		ra(aryinfo);
 		ra(aryinfo);
+		return (aryinfo);
 	}
-	else if (aryinfo.len_b <= 25)
+	else
 	{
 		count = reduce_b_zero(aryinfo, 0);
+		aryinfo.len_a=aryinfo.len_a + aryinfo.len_b;
+		aryinfo.len_b=0;
 		while (count > 0)
 		{
 			ra(aryinfo);
 			count--;
 		}
+		return (aryinfo);
 	}
 }
