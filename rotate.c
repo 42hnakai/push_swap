@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 21:35:00 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 23:20:05 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/12 16:28:35 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ra(t_ary_info aryinfo)
+void	ra(t_ary_info aryinfo)
 {
-	int i;
-	int x;
+	int	i;
+	int	x;
 
 	i = 0;
 	x = aryinfo.ary_a[0];
@@ -28,10 +28,10 @@ void ra(t_ary_info aryinfo)
 	printf("ra\n");
 }
 
-void rb(t_ary_info aryinfo)
+void	rb(t_ary_info aryinfo)
 {
-	int i;
-	int x;
+	int	i;
+	int	x;
 
 	i = 0;
 	x = aryinfo.ary_b[0];
@@ -44,12 +44,12 @@ void rb(t_ary_info aryinfo)
 	printf("rb\n");
 }
 
-void rr(t_ary_info aryinfo)
+void	rr(t_ary_info aryinfo)
 {
-	int i;
-	int j;
-	int x;
-	int y;
+	int	i;
+	int	j;
+	int	x;
+	int	y;
 
 	i = 0;
 	j = 0;

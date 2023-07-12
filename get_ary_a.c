@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   midian.c                                           :+:      :+:    :+:   */
+/*   get_ary_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 23:29:34 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/12 16:28:28 by hnakai           ###   ########.fr       */
+/*   Created: 2023/07/12 16:27:09 by hnakai            #+#    #+#             */
+/*   Updated: 2023/07/12 16:32:20 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	midian(int *ary, int len)
+int	*get_ary_a(char **ary, int *ary_a)
 {
-	int	i;
-	int	min;
+	int		i;
+	int		j;
+	int		k;
+	char	**ary_c;
 
-	i = 0;
-	min = ary[i];
-	while (i < len)
+	i = 1;
+	j = 0;
+	k = 0;
+	while (ary[i] != NULL)
 	{
-		if (ary[i] < min)
-			min = ary[i];
+		while (ary_c[j] != NULL)
+		{
+			ary_c = ft_split(ary[i], ' ');
+			ary_a[k] = ft_atoi(ary_c[j]);
+			k++;
+			j++;
+		}
 		i++;
+		j = 0;
 	}
-	return (min + len / 2);
+	return (ary_a);
 }

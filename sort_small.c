@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 22:31:28 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 23:39:31 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/12 16:44:11 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int reduce_b_zero(t_ary_info aryinfo, int count)
+int	reduce_b_zero(t_ary_info aryinfo, int count)
 {
-	max_min max_min;
+	t_max_min	max_min;
 
 	while (aryinfo.len_b > 0)
 	{
@@ -31,24 +31,23 @@ int reduce_b_zero(t_ary_info aryinfo, int count)
 		}
 		else
 		{
-			if (min_index_sign(aryinfo.ary_b,aryinfo.len_b) == 0)
+			if (min_index_sign(aryinfo.ary_b, aryinfo.len_b) == 0)
 				rb(aryinfo);
-			else if (min_index_sign(aryinfo.ary_b,aryinfo.len_b) == 1)
+			else if (min_index_sign(aryinfo.ary_b, aryinfo.len_b) == 1)
 				rrb(aryinfo);
 		}
 	}
 	return (count);
 }
 
-t_ary_info sort_small(t_ary_info aryinfo)
+t_ary_info	sort_small(t_ary_info aryinfo)
 {
-	int count;
+	int	count;
 
 	if (aryinfo.len_b == 1)
 	{
 		aryinfo = pa(aryinfo);
 		ra(aryinfo);
-		return (aryinfo);
 	}
 	else if (aryinfo.len_b == 2)
 	{
@@ -57,18 +56,14 @@ t_ary_info sort_small(t_ary_info aryinfo)
 		sort_two(aryinfo);
 		ra(aryinfo);
 		ra(aryinfo);
-		return (aryinfo);
 	}
 	else
 	{
 		count = reduce_b_zero(aryinfo, 0);
-		aryinfo.len_a=aryinfo.len_a + aryinfo.len_b;
-		aryinfo.len_b=0;
-		while (count > 0)
-		{
+		aryinfo.len_a = aryinfo.len_a + aryinfo.len_b;
+		aryinfo.len_b = 0;
+		while (count-- > 0)
 			ra(aryinfo);
-			count--;
-		}
-		return (aryinfo);
 	}
+	return (aryinfo);
 }

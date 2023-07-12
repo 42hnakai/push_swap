@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 21:36:29 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 23:57:27 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/12 16:28:34 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rra(t_ary_info aryinfo)
+void	rra(t_ary_info aryinfo)
 {
-	int x;
-	int i;
+	int	x;
+	int	i;
 
 	i = aryinfo.len_a;
 	x = aryinfo.ary_a[i - 1];
@@ -28,10 +28,10 @@ void rra(t_ary_info aryinfo)
 	printf("rra\n");
 }
 
-void rrb(t_ary_info aryinfo)
+void	rrb(t_ary_info aryinfo)
 {
-	int x;
-	int i;
+	int	x;
+	int	i;
 
 	i = aryinfo.len_b;
 	x = aryinfo.ary_b[i - 1];
@@ -44,12 +44,12 @@ void rrb(t_ary_info aryinfo)
 	printf("rrb\n");
 }
 
-void rrr(t_ary_info aryinfo)
+void	rrr(t_ary_info aryinfo)
 {
-	int x;
-	int y;
-	int i;
-	int j;
+	int	x;
+	int	y;
+	int	i;
+	int	j;
 
 	i = aryinfo.len_a;
 	j = aryinfo.len_b;

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   get_max_min.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:20:39 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 21:59:35 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/12 16:39:36 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-max_min get_max_min(int *ary, int len)
+t_max_min	get_max_min(int *ary, int len)
 {
-	max_min max_min;
-	int i;
+	t_max_min	max_min;
+	int			i;
 
 	i = 0;
 	max_min.min = ary[0];

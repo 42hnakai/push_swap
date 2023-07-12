@@ -1,29 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   midian.c                                           :+:      :+:    :+:   */
+/*   malloc_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 23:29:34 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/12 16:28:28 by hnakai           ###   ########.fr       */
+/*   Created: 2023/07/12 16:27:27 by hnakai            #+#    #+#             */
+/*   Updated: 2023/07/12 17:21:30 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	midian(int *ary, int len)
+int	malloc_size(int argc, char **ary)
 {
-	int	i;
-	int	min;
+	int		i;
+	int		j;
+	int		malloc_size;
+	char	**ary_c;
 
-	i = 0;
-	min = ary[i];
-	while (i < len)
+	i = 1;
+	j = 0;
+	malloc_size = 0;
+	while (i < argc)
 	{
-		if (ary[i] < min)
-			min = ary[i];
+		j = 0;
+		ary_c = ft_split(ary[i], ' ');
+		if (ary_c[0] == NULL)
+		{
+			printf("Error\n");
+			return (-1);
+		}
+		while (ary_c[j] != NULL)
+		{
+			if (!(is_validnum(ary_c[j])))
+			{
+				// free(ary_c);
+				printf("Error\n");
+				return (-1);
+			}
+			j++;
+		}
+		malloc_size += j;
 		i++;
 	}
-	return (min + len / 2);
+	return (malloc_size);
 }

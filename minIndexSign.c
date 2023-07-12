@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   minIndexSign.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:50:15 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 23:38:30 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/12 16:40:12 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	min_index_sign(int *ary,int len)
+int	min_index_sign(int *ary, int len)
 {
-	int		i;
-	int		minindex;
-	int		maxindex;
-	max_min	max_min;
+	int			i;
+	int			minindex;
+	int			maxindex;
+	t_max_min	max_min;
 
 	i = 0;
 	minindex = 0;
 	maxindex = 0;
-	max_min = get_max_min(ary,len);
+	max_min = get_max_min(ary, len);
 	while (i < len)
 	{
 		if (ary[i] == max_min.min)

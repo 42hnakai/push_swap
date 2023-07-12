@@ -3,43 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   half_ary.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 22:21:02 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 23:58:10 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/12 16:32:33 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_ary_info half_a(t_ary_info aryinfo)
+t_ary_info	half_a(t_ary_info aryinfo)
 {
-	int i;
-	int mid;
-	int len_a;
+	int	i;
+	int	mid;
+	int	len_a;
 
 	i = 0;
 	mid = midian(aryinfo.ary_a, aryinfo.len_a);
-	len_a=aryinfo.len_a;
+	len_a = aryinfo.len_a;
 	while (i < len_a)
 	{
 		if (aryinfo.ary_a[0] < mid)
-			aryinfo = pb(aryinfo); // len_bが１だけ増えてる？？
+			aryinfo = pb(aryinfo);
 		else
 			ra(aryinfo);
 		i++;
 		if (aryinfo.len_b == mid - 1)
-			break;
+			break ;
 	}
 	return (aryinfo);
 }
 
-int half_b(t_ary_info aryinfo)
+int	half_b(t_ary_info aryinfo)
 {
-	int i;
-	int mid;
-	int count;
-	int len_b;
+	int	i;
+	int	mid;
+	int	count;
+	int	len_b;
 
 	i = 0;
 	count = 0;

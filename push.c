@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hnakai <hnakai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hnakai <hnakai@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 21:33:40 by hnakai            #+#    #+#             */
-/*   Updated: 2023/07/10 22:51:24 by hnakai           ###   ########.fr       */
+/*   Updated: 2023/07/12 16:27:48 by hnakai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_ary_info pa(t_ary_info aryinfo)
+t_ary_info	pa(t_ary_info aryinfo)
 {
-	int i;
+	int	i;
 
 	i = aryinfo.len_a;
 	if (aryinfo.len_b != 0)
@@ -38,9 +38,9 @@ t_ary_info pa(t_ary_info aryinfo)
 	return (aryinfo);
 }
 
-t_ary_info pb(t_ary_info aryinfo)
+t_ary_info	pb(t_ary_info aryinfo)
 {
-	int i;
+	int	i;
 
 	i = aryinfo.len_b;
 	if (aryinfo.len_a != 0)
