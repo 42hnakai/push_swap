@@ -1,5 +1,5 @@
 CC = gcc
-GFLAGS = -Wall -Wextra -Werror
+GFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 NAME = push_swap
 SRC = swap.c push.c rotate.c reverse_rotate.c\
 	sort_tiny.c sort_small.c sort_many.c\
