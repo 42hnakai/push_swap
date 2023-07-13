@@ -1,10 +1,12 @@
 CC = gcc
-GFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+GFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-SRC = swap.c push.c rotate.c reverse_rotate.c\
-	sort_tiny.c sort_small.c sort_many.c\
-	coordcomp.c isSorted.c get_max_min.c midian.c  minIndexSign.c half_ary.c push_a_to_b.c error.c malloc_size.c get_ary_a.c\
-	ft_atoi.c ft_strlen.c ft_split.c ft_strncmp.c ft_strlcpy.c\
+SRC =libft/ft_atoi.c libft/ft_split.c libft/ft_strncmp.c libft/ft_strlcpy.c libft/ft_strlen.c\
+	rules/swap.c rules/push.c rules/rotate.c rules/reverse_rotate.c\
+	sorts/sort_tiny.c sorts/sort_small.c sorts/sort_many.c\
+	others/compress_coords.c others/free_double_ptr.c others/get_max_min.c others/half_ary.c others/is_error.c\
+	others/is_sorted.c others/malloc_a_b.c others/malloc_size.c others/midian.c others/minIndexSign.c\
+	others/push_a_to_b.c others/set_ary_a.c\
 	push_swap.c\
 
 OBJ = $(SRC:.c=.o)
@@ -14,16 +16,13 @@ all: $(NAME)
 $(NAME):$(OBJ)
 	$(CC) $(GFLAGS) $(OBJ) -o $(NAME)
 
-# $(OBJ): $(SRC)
-# 	$(CC) $(GFLAGS) -c $(SRC)
-
 .c.o:
-	$(CC) $(GFLAGS) -c $(SRC)
+	$(CC) $(GFLAGS) -c $< -o $@
 
 test: all
-	for i in $$(seq 1 100); do \
+	for i in $$(seq 500 500); do \
 		cd push_swap_tester/ && \
-		python3 push_swap_tester.py -l $$i -c 100 -r -$$i $$i && \
+		python3 push_swap_tester.py -l $$i -c 500 -r -$$i $$i&& \
 		cd - ; \
 	done
 
@@ -36,3 +35,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean fclean all re
+

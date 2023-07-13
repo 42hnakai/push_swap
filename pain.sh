@@ -1,8 +1,8 @@
 #!/bin/bash
 NBR_COUNT=6
 ##
-#NBR=$(seq 1 $NBR_COUNT | sort -R | tr '\n' ' ' | rev | cut -c 2- | rev)
-NBR="-3 -10 1 -5 -6 -2 -4 3 -1 -7"
+NBR=$(seq 1 $NBR_COUNT | sort -R | tr '\n' ' ' | rev | cut -c 2- | rev)
+#NBR="-3 -10 1 -5 -6 -2 -4 3 -1 -7"
 #NBR=$(seq 1 $NBR_COUNT | tr '\n' ' ' | rev | cut -c 2- | rev)
 CMD=$( ./push_swap $NBR)
 NBR_LINK=$( echo "$NBR" | tr ' ' ',' )
@@ -13,4 +13,4 @@ CMD_COUNT=${#CMD_LINK}
 RESULT=$( echo $CMD | ./checker_* $NBR )
 echo "Operations: $CMD_COUNT"
 echo "Result $RESULT"
-xdg-open "https://bluegales.github.io/push-swap-pain/?&nbr=$NBR_LINK&cmd=$CMD_LINK"
+open "https://bluegales.github.io/push-swap-pain/?&nbr=$NBR_LINK&cmd=$CMD_LINK"
